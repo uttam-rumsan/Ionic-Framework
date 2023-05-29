@@ -11,6 +11,8 @@ import {
   IonButton,
   IonIcon,
   IonImg,
+  useIonRouter,
+  useIonLoading,
 } from "@ionic/react";
 import { logInOutline, personCircleOutline } from "ionicons/icons";
 import Logo from "../../public/assets/fcc.svg";
@@ -25,7 +27,11 @@ type FormDataType = {
 };
 
 const Login: React.FC = () => {
+  const router = useIonRouter();
+
   const [introSeen, setIntroSeen] = useState<boolean>(false);
+
+  const [present, dismiss] = useIonLoading();
 
   const [formData, setFormData] = useState<FormDataType>({
     email: "",
@@ -37,12 +43,17 @@ const Login: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("====================================");
     console.log("Login operation here");
     console.log(formData);
     console.log("====================================");
+    await present("Loggin you in...");
+    setTimeout(() => {
+      dismiss();
+      router.push("/app", "root");
+    }, 2000);
   };
 
   const handleFinish = () => {
