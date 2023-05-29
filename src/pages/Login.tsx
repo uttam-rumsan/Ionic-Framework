@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import {
   IonCard,
   IonContent,
@@ -9,7 +9,11 @@ import {
   IonInput,
   IonCardContent,
   IonButton,
+  IonIcon,
+  IonImg,
 } from "@ionic/react";
+import { logInOutline, personCircleOutline } from "ionicons/icons";
+import Logo from "../../public/assets/fcc.svg";
 
 type FormDataType = {
   email: string;
@@ -23,7 +27,7 @@ const Login: React.FC = () => {
   });
 
   const handleInputChange = (e: any) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -43,6 +47,9 @@ const Login: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+        <div className="ion-text-center ion-padding">
+          <IonImg src={Logo} />
+        </div>
         <IonCard>
           <IonCardContent>
             <form onSubmit={handleFormSubmit}>
@@ -69,11 +76,20 @@ const Login: React.FC = () => {
                 value={formData.password}
                 onIonChange={handleInputChange}
               />
-              <IonButton expand="block" className="ion-margin-top" type="submit">
-                Login
+              <IonButton
+                expand="block"
+                className="ion-margin-top"
+                type="submit"
+              >
+                Login <IonIcon icon={logInOutline} slot="end" />
               </IonButton>
-              <IonButton expand="block" className="ion-margin-top" color="secondary">
-                Register
+              <IonButton
+                expand="block"
+                className="ion-margin-top"
+                color="secondary"
+                routerLink="/register"
+              >
+                Register <IonIcon icon={personCircleOutline} slot="end" />
               </IonButton>
             </form>
           </IonCardContent>
