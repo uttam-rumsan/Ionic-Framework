@@ -11,6 +11,7 @@ import {
   IonIcon,
   IonButtons,
   IonBackButton,
+  useIonRouter,
 } from "@ionic/react";
 
 import React, { useState } from "react";
@@ -23,6 +24,8 @@ type FormDataType = {
 };
 
 const Register: React.FC = () => {
+  const router=useIonRouter();
+
   const [formData, setFormData] = useState<FormDataType>({
     name: "",
     email: "",
@@ -38,6 +41,7 @@ const Register: React.FC = () => {
     console.log("register operation here");
     console.log(formData);
     console.log("====================================");
+    router.goBack()
   };
 
   return (
