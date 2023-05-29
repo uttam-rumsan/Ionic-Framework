@@ -9,6 +9,8 @@ import {
   IonInput,
   IonButton,
   IonIcon,
+  IonButtons,
+  IonBackButton,
 } from "@ionic/react";
 
 import React, { useState } from "react";
@@ -42,6 +44,9 @@ const Register: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar color="primary">
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/" />
+          </IonButtons>
           <IonTitle>Nepali Song chords</IonTitle>
         </IonToolbar>
       </IonHeader>
