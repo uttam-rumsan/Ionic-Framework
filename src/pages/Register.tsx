@@ -10,8 +10,11 @@ import {
   IonButton,
   IonIcon,
   IonButtons,
+  IonCol,
   IonBackButton,
   useIonRouter,
+  IonRow,
+  IonGrid,
 } from "@ionic/react";
 
 import React, { useState } from "react";
@@ -57,51 +60,57 @@ const Register: React.FC = () => {
       <IonContent className="ion-padding">
         <IonCard>
           <IonCardContent>
-            <form onSubmit={handleFormSubmit}>
-              <IonInput
-                mode="md"
-                name="name"
-                fill="outline"
-                labelPlacement="floating"
-                label="Full Name"
-                type="text"
-                placeholder="Enter your name"
-                value={formData.name}
-                onIonChange={handleInputChange}
-              />
-              <IonInput
-                className="ion-margin-top"
-                mode="md"
-                name="email"
-                fill="outline"
-                labelPlacement="floating"
-                label="Email"
-                type="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onIonChange={handleInputChange}
-              />
-              <IonInput
-                mode="md"
-                name="phone"
-                className="ion-margin-top"
-                fill="outline"
-                labelPlacement="floating"
-                label="Phone Number"
-                type="tel"
-                placeholder="Enter your Phone"
-                value={formData.phone}
-                onIonChange={handleInputChange}
-              />
-              <IonButton
-                expand="block"
-                className="ion-margin-top"
-                color="secondary"
-                type="submit"
-              >
-                Register <IonIcon icon={personCircleOutline} slot="end" />
-              </IonButton>{" "}
-            </form>
+            <IonGrid fixed>
+              <IonRow className="ion-justify-content-center">
+                <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
+                  <form onSubmit={handleFormSubmit}>
+                    <IonInput
+                      mode="md"
+                      name="name"
+                      fill="outline"
+                      labelPlacement="floating"
+                      label="Full Name"
+                      type="text"
+                      placeholder="Enter your name"
+                      value={formData.name}
+                      onIonChange={handleInputChange}
+                    />
+                    <IonInput
+                      className="ion-margin-top"
+                      mode="md"
+                      name="email"
+                      fill="outline"
+                      labelPlacement="floating"
+                      label="Email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onIonChange={handleInputChange}
+                    />
+                    <IonInput
+                      mode="md"
+                      name="phone"
+                      className="ion-margin-top"
+                      fill="outline"
+                      labelPlacement="floating"
+                      label="Phone Number"
+                      type="tel"
+                      placeholder="Enter your Phone"
+                      value={formData.phone}
+                      onIonChange={handleInputChange}
+                    />
+                    <IonButton
+                      expand="block"
+                      className="ion-margin-top"
+                      color="secondary"
+                      type="submit"
+                    >
+                      Register <IonIcon icon={personCircleOutline} slot="end" />
+                    </IonButton>{" "}
+                  </form>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
           </IonCardContent>
         </IonCard>
       </IonContent>

@@ -10,9 +10,12 @@ import {
   IonCardContent,
   IonButton,
   IonIcon,
+  IonRow,
   IonImg,
   useIonRouter,
   useIonLoading,
+  IonGrid,
+  IonCol,
 } from "@ionic/react";
 import { logInOutline, personCircleOutline } from "ionicons/icons";
 import Logo from "../../public/assets/fcc.svg";
@@ -81,53 +84,64 @@ const Login: React.FC = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent className="ion-padding">
-            <div className="ion-text-center ion-padding">
-              <IonImg src={Logo} />
-            </div>
-            <IonCard>
-              <IonCardContent>
-                <form onSubmit={handleFormSubmit}>
-                  <IonInput
-                    mode="md"
-                    name="email"
-                    fill="outline"
-                    labelPlacement="floating"
-                    label="Email"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={formData.email}
-                    onIonChange={handleInputChange}
-                  />
-                  <IonInput
-                    className="ion-margin-top"
-                    mode="md"
-                    name="password"
-                    fill="outline"
-                    labelPlacement="floating"
-                    label="Password"
-                    type="password"
-                    placeholder="Enter your password"
-                    value={formData.password}
-                    onIonChange={handleInputChange}
-                  />
-                  <IonButton
-                    expand="block"
-                    className="ion-margin-top"
-                    type="submit"
-                  >
-                    Login <IonIcon icon={logInOutline} slot="end" />
-                  </IonButton>
-                  <IonButton
-                    expand="block"
-                    className="ion-margin-top"
-                    color="secondary"
-                    routerLink="/register"
-                  >
-                    Register <IonIcon icon={personCircleOutline} slot="end" />
-                  </IonButton>
-                </form>
-              </IonCardContent>
-            </IonCard>
+            <IonGrid fixed>
+              <IonRow className="ion-justify-content-center">
+                <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
+                  <div className="ion-text-center ion-padding">
+                    <IonImg src={Logo} />
+                  </div>
+                </IonCol>
+              </IonRow>
+              <IonRow className="ion-justify-content-center">
+                <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
+                  <IonCard>
+                    <IonCardContent>
+                      <form onSubmit={handleFormSubmit}>
+                        <IonInput
+                          mode="md"
+                          name="email"
+                          fill="outline"
+                          labelPlacement="floating"
+                          label="Email"
+                          type="email"
+                          placeholder="Enter your email"
+                          value={formData.email}
+                          onIonChange={handleInputChange}
+                        />
+                        <IonInput
+                          className="ion-margin-top"
+                          mode="md"
+                          name="password"
+                          fill="outline"
+                          labelPlacement="floating"
+                          label="Password"
+                          type="password"
+                          placeholder="Enter your password"
+                          value={formData.password}
+                          onIonChange={handleInputChange}
+                        />
+                        <IonButton
+                          expand="block"
+                          className="ion-margin-top"
+                          type="submit"
+                        >
+                          Login <IonIcon icon={logInOutline} slot="end" />
+                        </IonButton>
+                        <IonButton
+                          expand="block"
+                          className="ion-margin-top"
+                          color="secondary"
+                          routerLink="/register"
+                        >
+                          Register{" "}
+                          <IonIcon icon={personCircleOutline} slot="end" />
+                        </IonButton>
+                      </form>
+                    </IonCardContent>
+                  </IonCard>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
           </IonContent>
         </IonPage>
       )}
