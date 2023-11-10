@@ -6,6 +6,9 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import React from "react";
+import MapboxComponent from "../components/map";
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 const Menu: React.FC = () => {
   return (
@@ -15,7 +18,7 @@ const Menu: React.FC = () => {
           <IonTitle>Page Title</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">UI goes here...</IonContent>
+      <IonContent className="ion-padding"><MapboxComponent/></IonContent>
     </IonPage>
   );
 };
